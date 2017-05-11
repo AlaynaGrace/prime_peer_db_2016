@@ -60,8 +60,8 @@ MongoDB.once('open', function () {
 ```
 
 #### What does this code do?
-Line 1: requires MongoDB and lets us use the Mongoose functions.
-Line 3: This is just a URL to the mongo database, which you set up earlier. The URL specifies a document store named `assignments` (this name is chosen by us)
-Line 4: Connects to the database using the URL from line 3. It will return an object that gives us access to the client.
-Line 6: The "on error" function allows us to see a console log when it can't connect.
-Line 10: The final "once open" function lets us know when it's connected.
+- Line 1: requires MongoDB and lets us use the Mongoose functions.
+- Line 3: This is just a URL to the mongo database, which you set up earlier. The URL specifies a document store named `assignments` (this name is chosen by us)
+- Line 4: Connects to the database using the URL from line 3. It will return an object that gives us access to the client.
+- Line 6: The "on error" function allows us to see a console log when it can't connect.
+- Line 10: The final "once open" function lets us know when it's connected.
