@@ -3,8 +3,8 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var path = require('path');
-var mongo = require('./modules/mongoConnect.js');
-var assignments = require('./modules/assignments.js');
+var mongo = require('./models/mongoConnect.js');
+var assignments = require('./models/assignments.js');
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());

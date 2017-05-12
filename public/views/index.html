@@ -21,9 +21,10 @@
       <button ng-click="ac.createAssignment()">Create Assignment</button>
       <div ng-repeat="assignment in ac.assignments">
         {{assignment.assignment_name}}
-        {{assignment.student_name:}}
+        {{assignment.student_name}}
         {{assignment.score}}
-        {{assignment.date_completed}}
+        {{assignment.date_completed | date}}
+        <button type="button" name="button" ng-click="ac.deleteAssignment(assignment._id)">Delete</button>
 
       </div>
 

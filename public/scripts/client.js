@@ -8,7 +8,11 @@ myApp.controller('AssignmentController', function($http, AssignmentTracker){
   vm.test = 'Hello';
   vm.assignments = [];
 
-  vm.getAssignments = AssignmentTracker.getAssignments;
+  vm.getAssignments = function(){
+    AssignmentTracker.getAssignments().then(function(data){
+      vm.assignments = data;
+    });
+  };
 
   vm.createAssignment = function(){
     var objectToSend = {
@@ -18,8 +22,20 @@ myApp.controller('AssignmentController', function($http, AssignmentTracker){
       date_completed: vm.dateCompletedIn
     };
     AssignmentTracker.addAssignment(objectToSend);
-    vm.assignments = vm.getAssignments();
+    vm.getAssignments();
+
+
     console.log('vm.assignments:',vm.assignments);
+  };
+
+  AssignmentTracker.getAssignmentsById('59160ab213faddb8318d1abe').then(function(data){
+    console.log('testing other get:',data);
+  });
+
+  vm.deleteAssignment = function(id) {
+    console.log('delete id:', id);
+    AssignmentTracker.deleteAssignment(id);
+    vm.getAssignments();
   };
 
 

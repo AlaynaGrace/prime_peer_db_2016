@@ -14,7 +14,8 @@ var assignmentSchema = mongoose.Schema({
 var assignment = mongoose.model('assignments', assignmentSchema);
 
 router.get('/',function(req,res){
-  assignment.find({},function(err,data){
+  console.log('req.body is:', req.body);
+  assignment.find(req.body,function(err,data){
     if(err){
       console.log(err);
       res.sendStatus(500);
@@ -39,6 +40,42 @@ router.post('/', function(req,res){
     }
   });
 
+});
+
+
+router.get('/findId/:id',function(req,res){
+  console.log('req.params.id is:', req.params.id);
+  var parameters = {};
+  if(req.params.id !== undefined){
+    parameters = {_id:req.params.id};
+  }
+  assignment.find(parameters,function(err,data){
+    if(err){
+      console.log(err);
+      res.sendStatus(500);
+    }
+    else{
+      console.log('data:', data);
+      res.send(data);
+    }
+  });
+
+});
+
+router.delete('/:id', function(req,res){
+  // console.log(req.body);
+  var idToDelete = {
+    _id: req.params.id
+  };
+  assignment.remove(idToDelete,function(err){
+    if(err){
+      console.log(err);
+      res.sendStatus(500);
+    }
+    else{
+      res.sendStatus(200);
+    }
+  });
 });
 
 module.exports = router;
