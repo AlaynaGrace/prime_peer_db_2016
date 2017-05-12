@@ -1,0 +1,27 @@
+{
+  "name": "prime_peer_db_2016",
+  "version": "1.0.0",
+  "description": "Practice MEAN Stack with your MongoDB and Angular chops. This is also an opportunity to practice using node modules and services to practice code encapsulation.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PrimeAcademy/prime_peer_db_2016.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PrimeAcademy/prime_peer_db_2016/issues"
+  },
+  "homepage": "https://github.com/PrimeAcademy/prime_peer_db_2016#readme",
+  "dependencies": {
+    "angular": "^1.6.4",
+    "body-parser": "^1.17.1",
+    "bootstrap": "^3.3.7",
+    "express": "^4.15.2",
+    "mongoose": "^4.9.8"
+  }
+}
