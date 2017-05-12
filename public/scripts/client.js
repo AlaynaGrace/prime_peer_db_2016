@@ -21,8 +21,15 @@ myApp.controller('AssignmentController', function($http, AssignmentTracker){
       score: vm.scoreIn,
       date_completed: vm.dateCompletedIn
     };
-    AssignmentTracker.addAssignment(objectToSend);
-    vm.getAssignments();
+    AssignmentTracker.addAssignment(objectToSend).then(function(){
+      console.log( 'thing' );
+      vm.getAssignments();
+      vm.assignmentNameIn='';
+      vm.studentNameIn='';
+      vm.scoreIn='';
+      vm.dateCompletedIn='';
+    });
+
 
 
     console.log('vm.assignments:',vm.assignments);
@@ -34,8 +41,10 @@ myApp.controller('AssignmentController', function($http, AssignmentTracker){
 
   vm.deleteAssignment = function(id) {
     console.log('delete id:', id);
-    AssignmentTracker.deleteAssignment(id);
-    vm.getAssignments();
+    AssignmentTracker.deleteAssignment(id).then(function () {
+      vm.getAssignments();
+    });
+
   };
 
 

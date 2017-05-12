@@ -11,20 +11,22 @@
   </head>
   <body ng-app="myApp">
 
-    <h1>Assignment Tracker</h1>
+    <div class="jumbotron"><h1>Assignment Tracker</h1></div>
     <div ng-controller="AssignmentController as ac" ng-init="ac.getAssignments()">
 
       <input type="text" placeholder="Assignment Name" value="" ng-model="ac.assignmentNameIn">
       <input type="text" placeholder="Student Name" value="" ng-model="ac.studentNameIn">
       <input type="text" placeholder="Score" value="" ng-model="ac.scoreIn">
       <input type="text" placeholder="Date Completed" value="" ng-model="ac.dateCompletedIn">
-      <button ng-click="ac.createAssignment()">Create Assignment</button>
+      <button ng-click="ac.createAssignment()" class="btn">Create Assignment</button>
       <div ng-repeat="assignment in ac.assignments">
-        {{assignment.assignment_name}}
-        {{assignment.student_name}}
-        {{assignment.score}}
-        {{assignment.date_completed | date}}
-        <button type="button" name="button" ng-click="ac.deleteAssignment(assignment._id)">Delete</button>
+        <div class="col-sm-3 col-xs-3" id="assignmentDiv">
+          <h2>{{assignment.assignment_name}}</h2>
+        </h3>Student: {{assignment.student_name}}</h3>
+          <p>Score: {{assignment.score}}</p>
+          <p>Date Completed:{{assignment.date_completed | date}}</p>
+          <button type="button" name="button" class="btn" ng-click="ac.deleteAssignment(assignment._id)">Delete</button>
+        </div>
 
       </div>
 

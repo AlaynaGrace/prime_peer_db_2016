@@ -18,12 +18,14 @@ myApp.service('AssignmentTracker', function($http){
 
   this.addAssignment = function(objectToSend){
     console.log('adding!');
-    $http({
+    return $http({
       url: '/assignments',
       method: 'POST',
       data: objectToSend
     }).then(function success(response){
+
       console.log(response);
+
     });
   };
 
@@ -44,7 +46,7 @@ myApp.service('AssignmentTracker', function($http){
   };
 
   this.deleteAssignment = function(id){
-    $http({
+    return $http({
       url:'/assignments/' + id,
       method: 'DELETE',
     }).then(function success(response){
